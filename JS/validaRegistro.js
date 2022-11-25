@@ -2,19 +2,20 @@ const enviado = document.getElementById('envia');
 
 enviado.addEventListener('click', (e) => {
     e.preventDefault()
-    let nombre = document.getElementById('nombre')
-    let mail = document.getElementById('mail')
-    let pass = document.getElementById('pass')
-    let pass2 = document.getElementById('pass2')
-
+    let nombre = document.getElementById('nombre').value
+    let mail = document.getElementById('mail').value
+    let pass = document.getElementById('pass').value
+    let pass2 = document.getElementById('pass2').value
     if (nombre == "" || mail == "" || pass == "" || pass2 == "") {
         return alert('Todos los campos son obligatorios')
     } else if (pass.length < 8 || pass2.length < 8) {
         return alert('La contraseña debe tener más de 8 caracteres.')
     } else if (pass != pass2) {
-        return alert('Tu password debe coincidir con el la segunda contraseña')
+        return alert('Tu password debe coincidir con la segunda contraseña')
 
     } else {
+
+
         return alert('Datos enviados correctamente.')
     }
 })

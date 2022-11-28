@@ -14,8 +14,15 @@ enviado.addEventListener('click', (e) => {
         return alert('Tu password debe coincidir con la segunda contraseña')
 
     } else {
-
-
         return alert('Datos enviados correctamente.')
+        fetch('http://localhost:8000/api/user/', {
+            method: 'POST',
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({ name: nombre, mail: mail, password: pass })
+        })
+            .then(res => res.json())
+            .then(res => { console.log(res); });
     }
 })

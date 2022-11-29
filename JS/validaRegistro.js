@@ -1,6 +1,6 @@
-const enviado = document.getElementById("envia");
+const registra = document.getElementById("envia");
 
-enviado.addEventListener("click", (e) => {
+registra.addEventListener("click", (e) => {
   e.preventDefault();
   let nombre = document.getElementById("nombre").value;
   let mail = document.getElementById("mail").value;
@@ -25,5 +25,15 @@ enviado.addEventListener("click", (e) => {
       .then((res) => {
         console.log(res);
       });
+  }
+});
+
+const login = document.getElementById('login');
+login.addEventListener('click', (e) => {
+  e.preventDefault();
+  let email = document.getElementById('mal').value;
+  let contraseña = document.getElementById('pass').value;
+  if (email == "" || contraseña == "") {
+    alert("Ninguno de los campos puede estar vacío");
   }
 });

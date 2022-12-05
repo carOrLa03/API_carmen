@@ -3,6 +3,11 @@ var express = require("express");
 var app = express();
 var db = require("./database.js");
 var md5 = require("md5");
+import { nanoid } from "nanoid";
+const cors = require("cors");
+const { config } = require("./config.js");
+
+app.use(cors(config.application.cors.server));
 
 var bodyParser = require("body-parser");
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -74,12 +79,32 @@ app.post("/api/user/", (req, res, next) => {
       return;
     }
     res.json({
-      message: "success",
+      message: "usuario registrado",
       data: data,
       id: this.lastID,
     });
   });
 });
+// hacer login
+const sessions = [];
+app.post("/api/user/", (req, res, next) => {
+  const { email, password } = req.body;
+  if (!email || !password) return res.sendStatus(400);
+  try {
+    // si tenemos usuario, el mail es correcto y la contraseña es correcta devolvemos que el usuario está autenticado
+    const { guid } = checkEmailPassword(email, password);
+
+    const sessionId = nanoid(); //creo un id para la session del usuario
+    sessions.push({ sessionId, guid }); //guardo el id en un array de sesiones
+    res.cookie("sessionId", sessionId, {
+      httpOnly: true,
+    });
+    return res.send();
+  } catch (err) {
+    return res.sendStatus(401);
+  }
+});
+// cambiar datos de un usuario
 app.patch("/api/user/:id", (req, res, next) => {
   var data = {
     name: req.body.name,
@@ -106,6 +131,7 @@ app.patch("/api/user/:id", (req, res, next) => {
     }
   );
 });
+// eliminar un usuario
 app.delete("/api/user/:id", (req, res, next) => {
   db.run(
     "DELETE FROM user WHERE id = ?",
@@ -119,6 +145,7 @@ app.delete("/api/user/:id", (req, res, next) => {
     }
   );
 });
+
 (req, res, next) => {
   res.json({ message: "Ok" });
 };

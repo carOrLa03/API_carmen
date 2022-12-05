@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "cors": "^2.8.5",
+    "nanoid": "^4.0.0"
+  }
+}

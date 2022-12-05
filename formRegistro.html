@@ -1,57 +1,55 @@
 <!DOCTYPE html>
 <html lang="es">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>API Carmen</title>
-    <link rel="stylesheet" href="/css/styles.css">
-</head>
+    <link rel="stylesheet" href="./css/styles.css" />
+  </head>
 
-<body>
+  <body>
     <h1 class="title">API Carmen</h1>
     <div class="container">
-        <h2>Registrate</h2>
-        <form action="http://localhost:8443/api/autenticar/" method="post">
-            <div>
-                <label for="">Nombre:</label>
-                <input type="text" name="" id="nombre">
-            </div>
-            <div>
-                <label for="">Email:</label>
-                <input type="mail" name="" id="mail">
-            </div>
-            <div>
-                <label for="">Password:</label>
-                <input type="password" name="" id="pass">
-            </div>
-            <div>
-                <label for="">Repite Password:</label>
-                <input type="password" name="" id="pass2">
-            </div>
-            <input type="submit" value="Envia" id="Valida">
-        </form>
+      <h2>Registrate</h2>
+      <!-- http://localhost:8443/api/autenticar/ -->
+      <form action="#" method="post" class="form">
+        <div>
+          <label for="">Nombre:</label>
+          <input type="text" name="" id="nombre" />
+        </div>
+        <div>
+          <label for="">Email:</label>
+          <input type="mail" name="" id="mail" />
+        </div>
+        <div>
+          <label for="">Password:</label>
+          <input type="password" name="" id="pass" />
+        </div>
+        <div>
+          <label for="">Repite Password:</label>
+          <input type="password" name="" id="pass2" />
+        </div>
+        <input type="submit" value="Envia" id="Valida" />
+      </form>
     </div>
     <div class="container">
-        <h2>Login</h2>
-        <form action="" method="post">
-            <div>
-                <label for="">Email</label>
-                <input type="text" name="" id="mail">
-            </div>
-            <div>
-                <label for="">Contraseña</label>
-                <input type="password" name="" id="pass">
-            </div>
-            <div>
-                <input type="submit" value="Log in" id="login">
-            </div>
-        </form>
-
+      <h2>Login</h2>
+      <form action="" method="post" class="login">
+        <div>
+          <label for="">Email</label>
+          <input type="text" name="" id="emaillogin" />
+        </div>
+        <div>
+          <label for="">Contraseña</label>
+          <input type="password" name="" id="passlogin" />
+        </div>
+        <div>
+          <input type="submit" value="Log in" id="login" />
+        </div>
+      </form>
     </div>
 
     <script src="./JS/validaRegistro.js"></script>
-</body>
-
+  </body>
 </html>
